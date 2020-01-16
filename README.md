@@ -2,7 +2,7 @@
 
 This is just some scripts I've created for managing my Citrix sites. Feel free to borrow and edit for yourself.
 
-
+- Copy-folder.ps1
 
 
 ### Support or Contact
