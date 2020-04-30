@@ -6,6 +6,7 @@ This is just some scripts I've created for managing my Citrix sites. Feel free t
 - Create-Reboot-Schedules
 - Get-PublishedApp-byUserAccess
 
+If you want to be added as a collaborator plese send me your email or git username @cdfranck@gmail.com 
 
 ### Support or Contact
 [Editor on GitHub](https://github.com/cdfranck/CitrixPS/edit/master/README.md)
