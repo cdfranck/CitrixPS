@@ -1,0 +1,10 @@
+# On all remote machines that need their info changed
+Set-ExecutionPolicy RemoteSigned
+Enable-PSRemoting # Say yes to all prompts
+
+$Computers = Get-Content "PATH TO .TXT FILE"
+
+
+foreach ($computer in $computers) {
+Invoke-Command -AsJob $Computers -ScriptBlock {$path = "HKLM:\PATH TO REGISTRY ENTRY";Set-ItemProperty -Path $path -Name “NAME OF REGISTRY KEY NAME” -Value “VALUE could be 0 or 1 or a name”}
+}
