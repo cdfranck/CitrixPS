@@ -1,0 +1,14 @@
+# Read in a list of computers/servers to have the contents of "folder path deleted
+# Change the location of the text file you will be using and edit the text file with the fully qualified domain name of VM
+$Serverfile = get-content 'change to the folder and file name of txt file containing the computers or servers'
+
+$Folder = "PATH TO THE FOLDER TO BE DELETED\"
+
+# Performs the deletion of files and folders  for each listed server
+foreach ($server in $Serverfile){
+
+  #Contents are deleted and will over-wwrite existing files, in use files may be skipped - if you want all output remove the ErrorAction and add verbose
+   Get-ChildItem $Folder | Remove-Item –recurse -Force
+
+   Write-Host $server is done!
+}
