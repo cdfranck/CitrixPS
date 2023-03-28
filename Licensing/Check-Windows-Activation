@@ -1,0 +1,21 @@
+# Check\Rearm TS licensing status
+
+# Change Directory
+Set-Location C:\Windows\System32
+
+# Display detailed license information.
+& .\slmgr.vbs /dlv
+
+# Wait for user to close detail window.
+Start-Sleep 5
+
+# Resets the activation timers.
+& .\slmgr.vbs /rearm
+
+# Prompts Windows to try online activation.
+& .\slmgr.vbs /ato
+
+# References
+# https://learn.microsoft.com/en-us/windows-server/get-started/activation-slmgr-vbs-options
+
+Exit
