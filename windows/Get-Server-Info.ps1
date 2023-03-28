@@ -1,7 +1,10 @@
-# Set variables
+# Create a short text file with some helpful information. 
+# Must be run from an elevated powershell window.
+
+# Set variables -- chnge these for your environment! -- 
 $outFldr = "C:\Tools\Info\"
 $output = "C:\Tools\Info\output.txt"
-$myICO = "C:\Tools\Info\ComputerNameICO.ico"
+$myICO = "C:\Tools\Info\custom.ico"
 $serverPurpose = "Citrix Virtual Apps 1912 LTSR - Virtual Delivery Agent"
 
 # Create resources if needed
@@ -23,15 +26,16 @@ Add-Content -Path $output -Value "Last Boot Time:  "  -NoNewline
 Add-Content -Path $output -Value ($serverInfo.OSLastBootUpTime)
 Add-Content -Path $output -Value "Server TimeZone:  "  -NoNewline
 Add-Content -Path $output -Value ($serverInfo.TimeZone)
-Add-Content -Path $output -Value "Server Purpose:  " $serverPurpose
+Add-Content -Path $output -Value "Server Purpose:  $serverPurpose" 
 Add-Content -Path $output -Value "---------------------"
 Add-Content -Path $output -Value (get-date)
 
-# Create 'myComputer' Icon
-$server = $env:COMPUTERNAME
+# Create Info Icon
+$server = $env:COMPUTERNAME + "_Info"
 if (Test-Path "C:\Users\Public\Desktop\$server.lnk") {Remove-Item "C:\Users\Public\Desktop\$server.lnk" -Force}
 $TargetFile = "$env:SystemRoot\System32\notepad.exe"
 $ShortcutFile = "$env:Public\Desktop\$server.lnk"
+# $ShortcutFile = "C:\Temp\$server.lnk" #Testing if not in an elevated prompt
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
