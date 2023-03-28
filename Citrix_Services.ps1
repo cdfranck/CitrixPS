@@ -1,4 +1,5 @@
-﻿# start the following Windows services in the specified order:
+#applies to citrix 7.15
+# start the following Windows services in the specified order:
 [Array] $Services = 'CitrixADIdentityService','CitrixAnalytics','CitrixAppLibrary','CitrixBrokerService','CitrixConfigSyncService','CitrixConfigurationLogging','CitrixConfigurationService','CitrixDelegatedAdmin','CitrixEnvTest','CitrixHighAvailabilityService','CitrixHostService','CitrixMachineCreationService','CitrixMonitor','CitrixOrchestration','XaXdCloudProxy','CitrixConnector','CitrixPrivilegedService','CitrixStorefront','CitrixTelemetryService','CitrixTrust';
 
 # loop through each service, if its not running, start it
